@@ -6,13 +6,6 @@ import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import Navbar from './components/Navbar';
 import News from './components/News';
 
-  
-//   setProgress = (progress) => {
-//     setState({
-//       progress: progress
-//     })
-//   }
-
 
 export default function App() {
   const apiKey = process.env.REACT_APP_NEWS_API_KEY;
@@ -22,22 +15,21 @@ export default function App() {
   return (
     <div>
         <Router>
-        {/* <LoadingBar
+        <LoadingBar
         color='#f11946'
         progress={progress}
         // onLoaderFinished={() => setProgress(0)}
-      /> */}
+      />
         <Navbar />
         <Switch>
-          {/* <Route exact key="general"  path="/"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="general"/></Route>
+          <Route exact key="general"  path="/"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="general"/></Route>
           <Route exact key="business"  path="/business"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="business"/></Route>
           <Route exact key="entertainment" path="/entertainment"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="entertainment"/></Route>
           <Route exact key="general" path="/general"><News  apiKey={apiKey}setProgress={setProgress} pageSize={pageSize} country="in" category="general"/></Route>
           <Route exact key="health" path="/health"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="health"/></Route>
           <Route exact key="science"  path="/science"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="science"/></Route>
           <Route exact key="sports" path="/sports"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="sports"/></Route>
-          <Route exact key="technology"  apiKey={apiKey} path="/technology"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="technology"/></Route> */}
-          <Route path="/business"> <News/> </Route>
+          <Route exact key="technology"  apiKey={apiKey} path="/technology"><News apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} country="in" category="technology"/></Route>
         </Switch>
            
         </Router>     

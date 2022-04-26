@@ -14,21 +14,21 @@ export default function News(props) {
   const [loading, setLoading] = useState (true);
 
   const updateNews = async () => {
-    // props.setProgress(10);
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=869e2323f75241ee848548da3ee028fd&page=${page}&pageSize=${props.pageSize}`;
+    props.setProgress(10);
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     let response = await fetch(apiUrl);
     let data = await response.json();
     setArticles(data.articles)
     setLoading(false);
-    // props.setProgress(50);
+    props.setProgress(50);
     setTotalRes(data.totalResults);
-    // props.setProgress(100);
+    props.setProgress(100);
   }
   useEffect(() => { updateNews(); }, [])
 
   const fetchMoreData = async () => {
     setPage(page + 1);
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=869e2323f75241ee848548da3ee028fd&page=${page}&pageSize=${props.pageSize}`;
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     let response = await fetch(apiUrl);
     let data = await response.json();
     setArticles(articles.concat(data.articles))
@@ -71,9 +71,6 @@ export default function News(props) {
       </>
     )
   }
-
-
-
 
   // PropTpyes Example
   News.propTypes = {
